@@ -4,9 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PathfinderBuissness"
+        xmlns:templates="clr-namespace:PathfinderBuissness.Views"
+        xmlns:viewModels="clr-namespace:PathfinderBuissness.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <TextBlock Text="" Background="Gray" TextAlignment="Center"/>
+        </Grid>
+
+        <ContentControl Grid.Row="2" Content="{Binding SelectedPanel}">
+            <ContentControl.ContentTemplateSelector>
+                <templates:PanelTemplateSelector/>
+            </ContentControl.ContentTemplateSelector>
+        </ContentControl>
 
     </Grid>
 </Window>

@@ -1,0 +1,85 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PathfinderBuissness.Views">
+
+
+    <DataTemplate x:Key="Header">
+        <Grid Background="Gray" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox Grid.Column="0" 
+                     Text="{Binding Name}" 
+                     TextAlignment="Left"
+                     Background="Gray"
+                     FontSize="15"
+                     FontWeight="Bold"
+                     BorderThickness="0"
+                     IsReadOnly="{Binding NameReadOnly}"
+                     Margin="5 1 5 1"/>
+
+            <Button Grid.Column="1" Content="Edit" Command="{Binding NameReadOnly}"/>
+        </Grid>
+    </DataTemplate>
+    
+    <DataTemplate x:Key="Cost">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Text="Goods:" Margin="5 1 5 1"/>
+            <TextBox Grid.Column="1" Text="{Binding Goods}"/>
+            <TextBlock Grid.Column="2" Text="Influence:" Margin="5 1 5 1"/>
+            <TextBox Grid.Column="3" Text="{Binding Influence}"/>
+            <TextBlock Grid.Column="4" Text="Labor:" Margin="5 1 5 1"/>
+            <TextBox Grid.Column="5" Text="{Binding Labor}"/>
+            <TextBlock Grid.Column="6" Text="Magic:" Margin="5 1 5 1"/>
+            <TextBox Grid.Column="7" Text="{Binding Magic}"/>
+            <TextBlock Grid.Column="8" Text="Time:" Margin="5 1 5 1"/>
+            <TextBox Grid.Column="9" Text="{Binding Time}"/>
+        </Grid>
+    </DataTemplate>
+    
+    <DataTemplate x:Key="BulidingTemplate">
+        <Grid Background="LightGray">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <ContentControl Grid.Row="0" ContentTemplate="{StaticResource Header}" Content="{Binding Name}"/>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <ContentControl Grid.Column="1" ContentTemplate="{StaticResource Cost}" Content="{Binding Cost}"/>
+                <ContentControl Grid.Column="3" ContentTemplate="{StaticResource Cost}" Content="{Binding Earnings}"/>
+            </Grid>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>
